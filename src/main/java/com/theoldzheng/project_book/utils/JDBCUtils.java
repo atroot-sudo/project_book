@@ -25,7 +25,6 @@ public class JDBCUtils {
         InputStream fis = null;
 
         Properties properties = null;
-        DruidPooledConnection connection = null;
         try {
             fis = JDBCUtils.class.getClassLoader().getResourceAsStream("jdbc.properties");
 
@@ -33,7 +32,6 @@ public class JDBCUtils {
             properties.load(fis);
 
             DataSource = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);
-            connection = DataSource.getConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,8 +45,7 @@ public class JDBCUtils {
         DruidPooledConnection connection = null;
         try {
             connection = DataSource.getConnection();
-            System.out.println("Database connection successful！");
-        } catch (SQLException throwables) {
+        } catch (Exception throwables) {
             throwables.printStackTrace();
         }
         return connection;
@@ -63,7 +60,6 @@ public class JDBCUtils {
         if (connection != null) {
             try {
                 connection.close();
-                System.out.println("Database closed successfully!");
             } catch (Exception throwables) {
                 throwables.printStackTrace();
             }

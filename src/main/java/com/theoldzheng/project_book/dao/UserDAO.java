@@ -22,7 +22,7 @@ public interface UserDAO {
      * 通过用户名和密码查找用户
      * @param username
      * @param password
-     * @return
+     * @return 如果用户用户名密码正确则返回User
      */
     User queryUserByUsernameAndPassword(String username,String password);
 
@@ -32,5 +32,6 @@ public interface UserDAO {
      * @return 返回-1添加失败
      */
     int saveUser(User user);
+
 
 }
