@@ -28,5 +28,13 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/User</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/code.jpg</url-pattern>
+    </servlet-mapping>
 
 </web-app>
