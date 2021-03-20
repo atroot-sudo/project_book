@@ -1,9 +1,13 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>尚硅谷会员注册页面</title>
-    <base href="http://localhost:8080/project_book_war/">
+    <%
+        String BasePath = request.getScheme() +"://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" ;
+    %>
+    <base href="<%=BasePath%>">
     <link type="text/css" rel="stylesheet" href="static/css/style.css">
     <!--    添加base标签固定相对路径的跳转结果-->
     <script type="text/javascript" src="static/script/jquery-1.7.2.js"></script>
@@ -113,7 +117,8 @@
                     <span class="errorMsg"></span>
                 </div>
                 <div class="form">
-                    <form action="registerUser" method="post">
+                    <form action="http://localhost:8080/project_book_war/User" method="post">
+                        <input type="hidden" name="action" value="regist">
                         <label>用户名称：</label>
                         <input class="itxt" type="text" placeholder="请输入用户名"
                                autocomplete="off" tabindex="1" name="username" id="username"/>

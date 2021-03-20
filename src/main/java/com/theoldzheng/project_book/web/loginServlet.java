@@ -28,11 +28,11 @@ public class loginServlet extends HttpServlet {
         if (userService.login(new User(username, password)) != null) {
             System.out.println("登陆成功");
             //跳转登录成功页面
-            req.getRequestDispatcher("/pages/user/login_success.html").forward(req, resp);
+            req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req, resp);
         } else {
             //用户名或密码不正确 请求转发
             System.out.println("用户名密码不正确，或用户不存在！");
-            req.getRequestDispatcher("/pages/user/login.html").forward(req, resp);
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
         }
 
 

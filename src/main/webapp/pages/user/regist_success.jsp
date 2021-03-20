@@ -1,9 +1,13 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>尚硅谷会员注册页面</title>
-	<base href="http://localhost:8080/project_book_war/">
+	<%
+		String BasePath = request.getScheme() +"://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" ;
+	%>
+	<base href="<%=BasePath%>">
 <link type="text/css" rel="stylesheet" href="static/css/style.css" >
 <style type="text/css">
 	h1 {
@@ -12,24 +16,21 @@
 	}
 	
 	h1 a {
-		color: #ff0000;
+		color:red;
 	}
 </style>
 </head>
 <body>
 		<div id="header">
 				<img class="logo_img" alt="" src="static/img/logo.gif" >
-				<div>
-					<span>欢迎<span class="um_span">韩总</span>光临尚硅谷书城</span>
-					<a href="order/order.html">我的订单</a>
-					<a href="index.html">注销</a>&nbsp;&nbsp;
-					<a href="index.html">返回</a>
-				</div>
+				<span class="wel_word"></span>
+			//静态包含
+			<%@include file="/pages/common/login_success_menu.jsp"%>
 		</div>
 		
 		<div id="main">
 		
-			<h1>欢迎回来 <a href="index.html">转到主页</a></h1>
+			<h1>注册成功! <a href="index.jsp">转到主页</a></h1>
 	
 		</div>
 		
